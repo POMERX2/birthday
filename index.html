@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Happy Birthday 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffecd2, #fcb69f);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 50px;
+      color: #fff;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #message {
+      display: none;
+      font-size: 24px;
+      color: #000000;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin-top: 40px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4081;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background: #f50057;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .balloon {
+      position: absolute;
+      width: 50px;
+      height: 70px;
+      background: red;
+      border-radius: 50% 50% 50% 50%;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-200px); opacity: 0; }
+    }
+
+    .spotify-frame {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎈 Happy Birthday! 🎈</h1>
+  <button onclick="showMessage()">🎁 Surprise Me!</button>
+  <div id="message">ขอให้วันนี้เป็นวันที่แสนพิเศษ เต็มไปด้วยรอยยิ้ม เสียงหัวเราะ และความสุขตลอดไป! 🎉🎂</div>
+
+  <!-- Spotify embed -->
+  <div class="spotify-frame">
+    <iframe style="border-radius:12px" 
+      src="https://open.spotify.com/embed/track/6Ev3Tg3bMeauemk3utvO1U?utm_source=generator&theme=0" 
+      width="300" height="80" frameBorder="0" allowfullscreen 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById('message').style.display = 'block';
+      createBalloons(20);
+    }
+
+    function createBalloons(num) {
+      for (let i = 0; i < num; i++) {
+        let b = document.createElement('div');
+        b.className = 'balloon';
+        b.style.left = Math.random() * 100 + 'vw';
+        b.style.background = getRandomColor();
+        b.style.animationDuration = (4 + Math.random() * 3) + 's';
+        document.body.appendChild(b);
+        setTimeout(() => b.remove(), 8000);
+      }
+    }
+
+    function getRandomColor() {
+      const colors = ['#f44336', '#e91e63', '#9c27b0', '#2196f3', '#4caf50', '#ffeb3b', '#ff9800'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+</body>
+</html>
